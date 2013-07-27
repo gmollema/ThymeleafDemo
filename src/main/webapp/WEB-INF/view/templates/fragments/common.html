@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="headerFragment">
+        <title th:text="#{title.application}">My movie catalog</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link id="cssLink" rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="" />
+    </head>
+
+    <body>
+        <div class="title">
+            Title
+        </div>
+        <div class="container">
+            Some container
+            Some links
+        </div>
+        <footer th:fragment="footerFragment">
+            <div class="footer">
+                <span th:text="#{label.footer}">Copyright 2013 - G. Mollema (offline)</span>
+            </div>
+        </footer>
+    </body>
+</html>
