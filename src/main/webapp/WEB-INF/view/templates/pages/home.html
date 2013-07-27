@@ -15,10 +15,10 @@
         <div class="container">
             <h2>Welcome to the movie catalog</h2>
             <p>Please select an option</p>
-            <ol>
+            <dl>
                 <li><a href="movie/list.html" th:text="#{title.list}">Movie List</a></li>
-                <li><a href="movie/new.html" th:text="#{title.new}">Add new movie</a></li>
-            </ol>
+                <dt><a href="movie/new.html" th:text="#{title.new}">Add new movie</a></dt>
+            </dl>
         </div>
         <div class="footer">
             <footer th:include="fragments/common::footerFragment">footer placeholder</footer>

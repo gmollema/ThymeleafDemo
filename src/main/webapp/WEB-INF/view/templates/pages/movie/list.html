@@ -45,11 +45,11 @@
                 </tr>
                 </tbody>
             </table>
-            <p>
-                <a href="new.html" th:text="#{title.new}">Add new movie</a>
-                <br/>
-                <a href="../home.html" th:text="#{label.nav.home}">Return to home</a>
-            </p>
+
+            <dl>
+                <dt><a href="new.html" th:text="#{title.new}">Add new movie</a></dt>
+                <dt><a href="../home.html" th:text="#{label.nav.home}">Return to home</a></dt>
+            </dl>
         </div>
         <div class="footer">
             <footer th:include="fragments/common::footerFragment">footer placeholder</footer>
