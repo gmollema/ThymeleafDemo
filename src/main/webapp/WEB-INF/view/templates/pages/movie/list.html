@@ -46,6 +46,8 @@
                 </tbody>
             </table>
             <p>
+                <a href="new.html" th:text="#{title.new}">Add new movie</a>
+                <br/>
                 <a href="../home.html" th:text="#{label.nav.home}">Return to home</a>
             </p>
         </div>
@@ -54,4 +56,19 @@
         </div>
     </body>
 
-</html>
+</html><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+        $(function () {
+            $("tr").click(function () {
+                doGet('edit.html', $(this).attr('id'));
+            });
+        });
+
+        function doGet(url, id) {
+            var form = $(document.createElement('form')).attr('method', 'GET').attr('action', url);
+            var input = $(document.createElement('input')).attr('type', 'hidden').attr('name','id').attr('value', id);
+            $(form).append(input);
+            $('body').append(form);
+            $(form).submit();
+        }
+</script>

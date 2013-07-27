@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class AbstractMovieController {
@@ -28,4 +29,23 @@ public abstract class AbstractMovieController {
 		request.getSession().setAttribute(MOVIE_LIST_KEY, movieList);
 		return movieList;
 	}
+
+    protected void getMovie(final HttpServletRequest request, Movie movie) {
+        List<Movie> movieList = allMovies(request);
+        for(Movie m : movieList) {
+            if(m.getId().equals(movie.getId())) {
+                Movie.clone(movie, m);
+            }
+        }
+    }
+
+    protected void saveOrUpdateMovie(final HttpServletRequest request, Movie movie) {
+        List<Movie> movieList = allMovies(request);
+        if (movie.getId() != null) {
+            Collections.replaceAll(movieList, movie, movie);
+        } else {
+            movie.setId(movieList.size()+1);
+            movieList.add(movie);
+        }
+    }
 }

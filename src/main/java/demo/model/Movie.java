@@ -21,6 +21,14 @@ public class Movie implements Serializable{
 	private Date dateAdded = new Date();
 	private Integer yearOfRelease;
 
+    public static void clone(Movie dest, final Movie src) {
+        dest.setId(src.getId());
+        dest.setGenres(src.getGenres());
+        dest.setTitle(src.getTitle());
+        dest.setDateAdded(src.getDateAdded());
+        dest.setYearOfRelease(src.getYearOfRelease());
+    }
+
 	@Override
 	public boolean equals(Object other) {
 		if ((this == other)) {
