@@ -46,7 +46,7 @@ public class MovieRepository {
 		movie4.setTitle("Finding Nemo");
         movie4.setYearOfRelease(2003);
 		movie4.setDateAdded(new Date());
-        movie4.setGenres(new Genre[]{Genre.ANIMATION, Genre.ADVENTURE});
+        movie4.setGenres(new Genre[]{Genre.ADVENTURE, Genre.ANIMATION});
 		this.movieById.put(movie4.getId(), movie4);
 	}
 
