@@ -12,6 +12,7 @@ body {
     padding: 20px 20px;
     width: 850px;
 }
+
 h2 {
     margin-bottom: 30px;
 }
@@ -31,11 +32,15 @@ body .title img {
 
 tr.odd:hover td {
     background-color: #9FBDF1;
+    cursor: pointer;
+    *cursor: hand;
 }
 
 
 tr.even:hover td {
     background-color: #9FBDF1;
+    cursor: pointer;
+    *cursor: hand;
 }
 
 tr.odd td {
