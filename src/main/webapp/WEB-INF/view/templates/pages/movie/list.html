@@ -28,7 +28,7 @@
                 <tr th:each="movie,rowStat : ${allMovies}" th:id="${movie.id}" th:class="${rowStat.even}? 'odd' : 'even'" id="1" class="odd">
                     <td th:text="${movie.title}">Template movie 1</td>
                     <td th:text="${movie.yearOfRelease}">year of release 1</td>
-                    <td><span th:each="singleGenre : ${movie.genres}" th:text="#{${'genre.type.' + singleGenre}} ">Genre</span></td>
+                    <td><span th:each="singleGenre : ${movie.genres}" th:text="#{${'genre.type.' + singleGenre}} + ' '">Genre</span></td>
                     <td th:text="${#dates.format(movie.dateAdded, #messages.msg('date.format'))}">date added 1</td>
                 </tr>
                 <tr id="2" class="even">
