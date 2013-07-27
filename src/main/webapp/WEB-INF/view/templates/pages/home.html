@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <title >Movie catalog</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" type="text/css" href="../../../../css/main.css" />
-    </head>
+    <head th:include="fragments/common::headerFragment"></head>
 
     <body>
         <div class="title">
@@ -20,8 +16,21 @@
             </ol>
         </div>
         <div class="footer">
-            <span>Copyright 2013 - G. Mollema (offline)</span>
+            <footer th:include="fragments/common::footerFragment"></footer>
         </div>
     </body>
 
 </html>
+<script th:remove="all" type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script th:remove="all" th:src="@{/js/thymol-context.js}" type="text/javascript" src="../../../../js/thymol-context.js"></script>
+<script th:remove="all" th:src="@{/js/thymol-0.1.3.js}" type="text/javascript" src="../../../../js/thymol-0.1.3.js"></script>
+<script th:remove="all" >
+    $(function () {
+        $('#cssLink').attr('href',relWebAppPath+"css/main.css");
+    });
+</script>
+<script th:remove="all" type="text/javascript">
+    //<![CDATA[
+    var thDebug = true;
+    //]]>
+</script>

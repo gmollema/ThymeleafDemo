@@ -4,7 +4,7 @@
     <head th:fragment="headerFragment">
         <title th:text="#{title.application}">My movie catalog</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link id="cssLink" rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="" />
+            <link id="cssLink" rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="" onload="setCssPath"/>
     </head>
 
     <body>
@@ -15,10 +15,8 @@
             Some container
             Some links
         </div>
-        <footer th:fragment="footerFragment">
-            <div class="footer">
-                <span th:text="#{label.footer}">Copyright 2013 - G. Mollema (offline)</span>
-            </div>
-        </footer>
+        <div class="footer">
+            <span th:text>Copyright 2013 - G. Mollema (offline)</span>
+        </div>
     </body>
 </html>
