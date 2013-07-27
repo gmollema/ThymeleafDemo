@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head>
         <title >Movie catalog</title>
@@ -8,19 +9,19 @@
 
     <body>
         <div class="title">
-            <img src="../../../../images/logo_offline.png"/>
-            <h1>Home (offline)</h1>
+            <img th:src="@{/images/logo.png}" src="../../../../images/logo_offline.png"/>
+            <h1 th:text="#{title.home}">Home (offline)</h1>
         </div>
         <div class="container">
             <h2>Welcome to the movie catalog</h2>
             <p>Please select an option</p>
             <ol>
-                <li><a href="movie/list.html">Movie List</a></li>
+                <li><a href="movie/list.html" th:text="#{title.list}">Movie List</a></li>
             </ol>
         </div>
         <div class="footer">
             <span>Copyright 2013 - G. Mollema (offline)</span>
         </div>
     </body>
-  
+
 </html>

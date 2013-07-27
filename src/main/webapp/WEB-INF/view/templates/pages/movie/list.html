@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
     <head>
         <title >Movie catalog</title>
@@ -8,25 +9,27 @@
 
     <body>
         <div class="title">
-            <img src="../../../../../images/logo_offline.png"/>
-            <h1>Movie list (offline)</h1>
+            <img th:src="@{/images/logo.png}" src="../../../../../images/logo_offline.png"/>
+            <h1 th:text="#{title.list}">Movie list (offline)</h1>
         </div>
+
+        <br/>
         <div class="container">
             <table>
                 <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Year of release</th>
-                    <th>Genre</th>
-                    <th>Date added</th>
+                    <th th:text="#{label.movie.title}">Title</th>
+                    <th th:text="#{label.movie.yearOfRelease}">Year of release</th>
+                    <th th:text="#{label.movie.genre}">Genre</th>
+                    <th th:text="#{label.movie.dateAdded}">Date added</th>
                 </tr>
                 </thead>
-                <tbody >
-                <tr class="odd">
-                    <td>Template movie 1</td>
-                    <td>year of release 1</td>
-                    <td>Genre</td>
-                    <td>date added 1</td>
+                <tbody th:remove="all-but-first">
+                <tr th:each="movie,rowStat : ${allMovies}" th:id="${movie.id}" th:class="${rowStat.even}? 'odd' : 'even'" id="1" class="odd">
+                    <td th:text="${movie.title}">Template movie 1</td>
+                    <td th:text="${movie.yearOfRelease}">year of release 1</td>
+                    <td><span th:each="singleGenre : ${movie.genres}" th:text="#{${'genre.type.' + singleGenre}} ">Genre</span></td>
+                    <td th:text="${#dates.format(movie.dateAdded, #messages.msg('date.format'))}">date added 1</td>
                 </tr>
                 <tr id="2" class="even">
                     <td>Template movie 2</td>
@@ -43,7 +46,7 @@
                 </tbody>
             </table>
             <p>
-                <a href="../home.html">Return to home</a>
+                <a href="../home.html" th:text="#{label.nav.home}">Return to home</a>
             </p>
         </div>
         <div class="footer">
