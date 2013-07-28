@@ -4,7 +4,7 @@
     <head>
         <title >Movie catalog</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" type="text/css" href="../../../../css/main.css" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../../../../css/main.css" />
     </head>
 
     <body>
@@ -16,7 +16,7 @@
             <h2>Welcome to the movie catalog</h2>
             <p>Please select an option</p>
             <dl>
-                <li><a href="movie/list.html" th:text="#{title.list}">Movie List</a></li>
+                <dt><a href="movie/list.html" th:text="#{title.list}">Movie List</a></dt>
                 <dt><a href="movie/new.html" th:text="#{title.new}">Add new movie</a></dt>
             </dl>
         </div>
