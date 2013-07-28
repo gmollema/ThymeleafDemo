@@ -4,11 +4,11 @@
     <head>
         <title>My movie collection</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link id="cssLink" rel="stylesheet" type="text/css" href="../../../css/main.css" />
+        <link id="cssLink" rel="stylesheet" type="text/css" href="/ThymeleafDemo-1.0/css/main.css" />
     </head>
     <body>
         <div class="title" style="overflow: auto">
-            <img src="../../../images/logo.png" style="float:right;"/>
+            <img src="/ThymeleafDemo-1.0/images/logo.png" style="float:right;"/>
             <h1>Movie counter page</h1>
         </div>
 
