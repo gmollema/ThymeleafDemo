@@ -1,5 +1,4 @@
 #ThymeleafDemo
-=============
 
 This is a movie catalog web application demo based on the ThymeLeaf framework and Spring 3 MVC.
 
