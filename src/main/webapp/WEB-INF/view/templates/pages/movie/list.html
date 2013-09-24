@@ -1,75 +1,80 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <title >Movie catalog</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" type="text/css" href="../../../../../css/main.css" />
-    </head>
+<head>
+    <title>Movie catalog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../../../../../css/main.css"/>
+</head>
 
-    <body>
-        <div class="title">
-            <img th:src="@{/images/logo.png}" src="../../../../../images/logo_offline.png"/>
-            <h1 th:text="#{title.list}">Movie list (offline)</h1>
-        </div>
+<body>
+<div class="title">
+    <img th:src="@{/images/logo.png}" src="../../../../../images/logo_offline.png"/>
 
-        <br/>
-        <div class="container">
-            <table>
-                <thead>
-                <tr>
-                    <th th:text="#{label.movie.title}">Title</th>
-                    <th th:text="#{label.movie.yearOfRelease}">Year of release</th>
-                    <th th:text="#{label.movie.genre}">Genre</th>
-                    <th th:text="#{label.movie.dateAdded}">Date added</th>
-                </tr>
-                </thead>
-                <tbody th:remove="all-but-first">
-                <tr th:each="movie,rowStat : ${allMovies}" th:id="${movie.id}" th:class="${rowStat.even}? 'odd' : 'even'" id="1" class="odd">
-                    <td th:text="${movie.title}">Template movie 1</td>
-                    <td th:text="${movie.yearOfRelease}">year of release 1</td>
-                    <td><span th:each="singleGenre : ${movie.genres}" th:text="#{${'genre.type.' + singleGenre}} + ' '">Genre</span></td>
-                    <td th:text="${#dates.format(movie.dateAdded, #messages.msg('date.format'))}">date added 1</td>
-                </tr>
-                <tr id="2" class="even">
-                    <td>Template movie 2</td>
-                    <td>Year of release 2</td>
-                    <td>Genre 2</td>
-                    <td>Date added 2</td>
-                </tr>
-                <tr id="3" class="odd">
-                    <td>Template movie 3</td>
-                    <td>Year of release 3</td>
-                    <td>Genre 3</td>
-                    <td>Date added 3</td>
-                </tr>
-                </tbody>
-            </table>
+    <h1 th:text="#{title.list}">Movie list (offline)</h1>
+</div>
 
-            <dl>
-                <dt><a href="new.html" th:text="#{title.new}">Add new movie</a></dt>
-                <dt><a href="counter.html" th:text="#{title.counter}">Movie Counter</a></dt>
-                <dt><a href="../home.html" th:text="#{label.nav.home}">Return to home</a></dt>
-            </dl>
-        </div>
-        <div class="footer">
-            <footer th:include="fragments/common::footerFragment">footer placeholder</footer>
-        </div>
-    </body>
+<br/>
 
-</html><script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<div class="container">
+    <table>
+        <thead>
+        <tr>
+            <th th:text="#{label.movie.title}">Title</th>
+            <th th:text="#{label.movie.yearOfRelease}">Year of release</th>
+            <th th:text="#{label.movie.genre}">Genre</th>
+            <th th:text="#{label.movie.dateAdded}">Date added</th>
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each="movie,rowStat : ${allMovies}" th:id="${movie.id}" th:class="${rowStat.even}? 'odd' : 'even'" id="1"
+            class="odd">
+            <td th:text="${movie.title}">Template movie 1</td>
+            <td th:text="${movie.yearOfRelease}">year of release 1</td>
+            <td><span th:each="singleGenre : ${movie.genres}"
+                      th:text="#{${'genre.type.' + singleGenre}} + ' '">Genre</span></td>
+            <td th:text="${#dates.format(movie.dateAdded, #messages.msg('date.format'))}">date added 1</td>
+        </tr>
+        <tr id="2" class="even">
+            <td>Template movie 2</td>
+            <td>Year of release 2</td>
+            <td>Genre 2</td>
+            <td>Date added 2</td>
+        </tr>
+        <tr id="3" class="odd">
+            <td>Template movie 3</td>
+            <td>Year of release 3</td>
+            <td>Genre 3</td>
+            <td>Date added 3</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <dl>
+        <dt><a href="new.html" th:text="#{title.new}">Add new movie</a></dt>
+        <dt><a href="counter.html" th:text="#{title.counter}">Movie Counter</a></dt>
+        <dt><a href="../home.html" th:text="#{label.nav.home}">Return to home</a></dt>
+    </dl>
+</div>
+<div class="footer">
+    <footer th:include="fragments/common::footerFragment">footer placeholder</footer>
+</div>
+</body>
+
+</html>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
-        $(function () {
-            $("tr").click(function () {
-                doGet('edit.html', $(this).attr('id'));
-            });
+    $(function () {
+        $("tr").click(function () {
+            doGet('edit.html', $(this).attr('id'));
         });
+    });
 
-        function doGet(url, id) {
-            var form = $(document.createElement('form')).attr('method', 'GET').attr('action', url);
-            var input = $(document.createElement('input')).attr('type', 'hidden').attr('name','id').attr('value', id);
-            $(form).append(input);
-            $('body').append(form);
-            $(form).submit();
-        }
+    function doGet(url, id) {
+        var form = $(document.createElement('form')).attr('method', 'GET').attr('action', url);
+        var input = $(document.createElement('input')).attr('type', 'hidden').attr('name', 'id').attr('value', id);
+        $(form).append(input);
+        $('body').append(form);
+        $(form).submit();
+    }
 </script>

@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <title >Movie catalog</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" type="text/css" href="../../../../css/main.css" />
-    </head>
+<head>
+    <title>Movie catalog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../../../../css/main.css"/>
+</head>
 
-    <body>
-        <div class="title">
-            <img th:src="@{/images/logo.png}" src="../../../../images/logo_offline.png"/>
-            <h1 th:text="#{title.home}">Home (offline)</h1>
-        </div>
-        <div class="container">
-            <h2>Welcome to the movie catalog</h2>
-            <p>Please select an option</p>
-            <dl>
-                <dt><a href="movie/list.html" th:text="#{title.list}">Movie List</a></dt>
-                <dt><a href="movie/new.html" th:text="#{title.new}">Add new movie</a></dt>
-                <dt><a href="movie/counter.html" th:text="#{title.counter}">Movie Counter</a></dt>
-            </dl>
-        </div>
-        <div class="footer">
-            <footer th:include="fragments/common::footerFragment">footer placeholder</footer>
-        </div>
-    </body>
+<body>
+<div class="title">
+    <img th:src="@{/images/logo.png}" src="../../../../images/logo_offline.png"/>
+
+    <h1 th:text="#{title.home}">Home (offline)</h1>
+</div>
+<div class="container">
+    <h2>Welcome to the movie catalog</h2>
+
+    <p>Please select an option</p>
+    <dl>
+        <dt><a href="movie/list.html" th:text="#{title.list}">Movie List</a></dt>
+        <dt><a href="movie/new.html" th:text="#{title.new}">Add new movie</a></dt>
+        <dt><a href="movie/counter.html" th:text="#{title.counter}">Movie Counter</a></dt>
+    </dl>
+</div>
+<div class="footer">
+    <footer th:include="fragments/common::footerFragment">footer placeholder</footer>
+</div>
+</body>
 
 </html>

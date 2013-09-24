@@ -1,78 +1,84 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <title >Movie catalog</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" type="text/css" href="../../../../../css/main.css" />
-    </head>
+<head>
+    <title>Movie catalog</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" href="../../../../../css/main.css"/>
+</head>
 
-    <body>
-        <div class="title">
-            <img th:src="@{/images/logo.png}" src="../../../../../images/logo_offline.png" />
-            <h1 th:text="#{title.new}">Add new movie(offline)</h1>
-        </div>
+<body>
+<div class="title">
+    <img th:src="@{/images/logo.png}" src="../../../../../images/logo_offline.png"/>
 
-        <div class="container">
-            <form action="#" th:action="@{/movie/new.html}" th:object="${movie}" method="post">
-                <fieldset>
-                    <legend th:text="#{title.data}">Movie data</legend>
+    <h1 th:text="#{title.new}">Add new movie(offline)</h1>
+</div>
 
-                    <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
-                        <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
-                    </ul>
+<div class="container">
+    <form action="#" th:action="@{/movie/new.html}" th:object="${movie}" method="post">
+        <fieldset>
+            <legend th:text="#{title.data}">Movie data</legend>
 
-                    <div>
-                        <label for="title">
-                            <span th:text="#{label.movie.title}">title</span>
-                        </label>
-                        <input type="text" th:field="*{title}" th:class="${#fields.hasErrors('title')}? 'fieldError'"/>
-                    </div>
+            <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
+                <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+            </ul>
 
-                    <div>
-                        <label for="genres">
-                            <span th:text="#{label.movie.genre}">Genre</span>
-                        </label>
-                        <ul>
-                            <li th:each="singleGenre : ${genreList}">
-                                <input type="checkbox" th:field="*{genres}" th:value="${singleGenre}" th:class="${#fields.hasErrors('genres')}? 'fieldError'"/>
-                                <label th:for="${#ids.prev('genres')}" th:text="#{${'genre.type.' + singleGenre}}">Genre option</label>
-                            </li>
-                        </ul>
-                    </div>
+            <div>
+                <label for="title">
+                    <span th:text="#{label.movie.title}">title</span>
+                </label>
+                <input type="text" th:field="*{title}" th:class="${#fields.hasErrors('title')}? 'fieldError'"/>
+            </div>
 
-                    <div>
-                        <div>
-                            <label for="yearOfRelease" th:text="#{label.movie.yearOfRelease}">Year of release</label>
-                            <select th:field="*{yearOfRelease}">
-                                <option th:each="yearOfRelease : ${releaseYearList}" th:value="${yearOfRelease}" th:text="${yearOfRelease}">Year of release option</option>
-                            </select>
-                        </div>
-                    </div>
+            <div>
+                <label for="genres">
+                    <span th:text="#{label.movie.genre}">Genre</span>
+                </label>
+                <ul>
+                    <li th:each="singleGenre : ${genreList}">
+                        <input type="checkbox" th:field="*{genres}" th:value="${singleGenre}"
+                               th:class="${#fields.hasErrors('genres')}? 'fieldError'"/>
+                        <label th:for="${#ids.prev('genres')}" th:text="#{${'genre.type.' + singleGenre}}">Genre
+                            option</label>
+                    </li>
+                </ul>
+            </div>
 
-                    <div>
-                        <label for="dateAdded">
-                            <span th:text="#{label.movie.dateAdded}">Date added</span>
-                            (<span th:text="#{date.format}">YYYY/MM/DD</span>)
-                        </label>
-                        <input type="text" th:field="*{dateAdded}" th:class="${#fields.hasErrors('dateAdded')}? 'fieldError'"/>
-                    </div>
-
-                <input type="hidden" th:value="*{id}" name="id"/>
-                <div class="submit">
-                    <button type="submit" name="save" value="save" th:text="#{label.button.save}">Save</button>
+            <div>
+                <div>
+                    <label for="yearOfRelease" th:text="#{label.movie.yearOfRelease}">Year of release</label>
+                    <select th:field="*{yearOfRelease}">
+                        <option th:each="yearOfRelease : ${releaseYearList}" th:value="${yearOfRelease}"
+                                th:text="${yearOfRelease}">Year of release option
+                        </option>
+                    </select>
                 </div>
-                </fieldset>
-            </form>
+            </div>
 
-            <dl>
-                <dt><a href="list.html" th:text="#{title.list}">Movie List</a></dt>
-                <dt><a href="../home.html" th:text="#{label.nav.home}">Return to home</a></dt>
-            </dl>
+            <div>
+                <label for="dateAdded">
+                    <span th:text="#{label.movie.dateAdded}">Date added</span>
+                    (<span th:text="#{date.format}">YYYY/MM/DD</span>)
+                </label>
+                <input type="text" th:field="*{dateAdded}" th:class="${#fields.hasErrors('dateAdded')}? 'fieldError'"/>
+            </div>
 
-        </div>
-        <div class="footer">
-            <footer th:include="fragments/common::footerFragment">footer placeholder</footer>
-        </div>
-    </body>
+            <input type="hidden" th:value="*{id}" name="id"/>
+
+            <div class="submit">
+                <button type="submit" name="save" value="save" th:text="#{label.button.save}">Save</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <dl>
+        <dt><a href="list.html" th:text="#{title.list}">Movie List</a></dt>
+        <dt><a href="../home.html" th:text="#{label.nav.home}">Return to home</a></dt>
+    </dl>
+
+</div>
+<div class="footer">
+    <footer th:include="fragments/common::footerFragment">footer placeholder</footer>
+</div>
+</body>
 </html>
