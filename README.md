@@ -4,7 +4,7 @@ This is a movie catalog web application demo based on the ThymeLeaf framework an
 
 ###Examples
 Five examples are included, which can be retrieved by checking out the branch names
-(for example: git checkout -d example1).
+(for example: git checkout example1).
 
 <dl>
   <dt>example1</dt>
